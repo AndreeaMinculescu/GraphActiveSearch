@@ -1,0 +1,436 @@
+Model built: n_nodes=3, particle filter size=1
+
+Solving (creating planner)... (this may take a moment)
+
+Stepping through an episode using POMCP planner:
+=========== NEW SEARCH ===========
+Belief has 5 particles
+
+--- Simulation 1 ---
+Sampled particle labels: Bool[1, 0, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 0]
+Simulating at depth 10
+Current state labels: Bool[1, 0, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+   Selected action: Stop()
+Generated observation: ASObservation(-1, false, Int64[])
+Reward: -10
+Likelihood under state: 1.0
+New observation node created.
+
+--- Simulation 2 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 0]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node Stop(): criterion=-9.999899999995865
+   t.v[node] = -10.0, ltn = 1.000000082690371e-10, n = 1
+   Selected action: ProbeLabel(1)
+Generated observation: ASObservation(1, false, [2])
+Reward: -1
+Likelihood under state: 0.053579999999999996
+New observation node created.
+
+--- Simulation 3 ---
+Sampled particle labels: Bool[0, 0, 1]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 0]
+Simulating at depth 10
+Current state labels: Bool[0, 0, 1]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=7.325546111877259
+   t.v[node] = -1.0, ltn = 0.6931471806099453, n = 1
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = 0.6931471806099453, n = 0
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = 0.6931471806099453, n = 0
+UCB
+   Node Stop(): criterion=-1.6744538881227413
+   t.v[node] = -10.0, ltn = 0.6931471806099453, n = 1
+   Selected action: ProbeLabel(2)
+Generated observation: ASObservation(2, false, [1, 3])
+Reward: -1
+Likelihood under state: 0.0034199999999999994
+New observation node created.
+
+--- Simulation 4 ---
+Sampled particle labels: Bool[0, 0, 1]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 0]
+Simulating at depth 10
+Current state labels: Bool[0, 0, 1]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=9.481470739841061
+   t.v[node] = -1.0, ltn = 1.0986122887014431, n = 1
+UCB
+   Node ProbeLabel(2): criterion=9.481470739841061
+   t.v[node] = -1.0, ltn = 1.0986122887014431, n = 1
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.0986122887014431, n = 0
+UCB
+   Node Stop(): criterion=0.48147073984106115
+   t.v[node] = -10.0, ltn = 1.0986122887014431, n = 1
+   Selected action: ProbeLabel(3)
+Generated observation: ASObservation(3, true, Int64[])
+Reward: 2.0
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 5 ---
+Sampled particle labels: Bool[1, 0, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 0]
+Simulating at depth 10
+Current state labels: Bool[1, 0, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=10.774100225260913
+   t.v[node] = -1.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node ProbeLabel(2): criterion=10.774100225260913
+   t.v[node] = -1.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node ProbeLabel(3): criterion=13.774100225260913
+   t.v[node] = 2.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node Stop(): criterion=1.7741002252609128
+   t.v[node] = -10.0, ltn = 1.3862943611448906, n = 1
+   Selected action: ProbeLabel(3)
+Generated observation: ASObservation(3, false, Int64[])
+Reward: -1
+Likelihood under state: 0.8394199999999998
+New observation node created.
+Step 1
+  True state: ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 0, 1], false)
+  Action: ProbeLabel(3)
+  Obs: label=false neighbors=Int64[]
+  Reward: -1
+  Belief: 5 particles
+    Particle 1: labels=ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 0, 0], false), likelihood=0.8394199999999998
+    Particle 2: labels=ASState([Int64[], Int64[], Int64[]], Bool[0, 0, 1], Bool[0, 0, 0], false), likelihood=0.04418000000000004
+    Particle 3: labels=ASState([Int64[], Int64[], Int64[]], Bool[0, 0, 1], Bool[0, 0, 0], false), likelihood=0.04418000000000004
+    Particle 4: labels=ASState([Int64[], Int64[], Int64[]], Bool[1, 0, 0], Bool[0, 0, 0], false), likelihood=0.8394199999999998
+    Particle 5: labels=ASState([Int64[], Int64[], Int64[]], Bool[1, 0, 0], Bool[0, 0, 0], false), likelihood=0.8394199999999998
+=========== NEW SEARCH ===========
+Belief has 3 particles
+
+--- Simulation 1 ---
+Sampled particle labels: Bool[1, 0, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 1]
+Simulating at depth 10
+Current state labels: Bool[1, 0, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+   Selected action: ProbeLabel(3)
+Generated observation: ASObservation(3, false, Int64[])
+Reward: -1
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 2 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node ProbeLabel(3): criterion=-0.9998999999958654
+   t.v[node] = -1.0, ltn = 1.000000082690371e-10, n = 1
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+   Selected action: ProbeLabel(2)
+Generated observation: ASObservation(2, true, Int64[])
+Reward: 2.0
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 3 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = 0.6931471806099453, n = 0
+UCB
+   Node ProbeLabel(2): criterion=10.325546111877259
+   t.v[node] = 2.0, ltn = 0.6931471806099453, n = 1
+UCB
+   Node ProbeLabel(3): criterion=7.325546111877259
+   t.v[node] = -1.0, ltn = 0.6931471806099453, n = 1
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = 0.6931471806099453, n = 0
+   Selected action: Stop()
+Generated observation: ASObservation(-1, false, Int64[])
+Reward: -10
+Likelihood under state: 1.0
+New observation node created.
+
+--- Simulation 4 ---
+Sampled particle labels: Bool[1, 0, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 1]
+Simulating at depth 10
+Current state labels: Bool[1, 0, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.0986122887014431, n = 0
+UCB
+   Node ProbeLabel(2): criterion=12.481470739841061
+   t.v[node] = 2.0, ltn = 1.0986122887014431, n = 1
+UCB
+   Node ProbeLabel(3): criterion=9.481470739841061
+   t.v[node] = -1.0, ltn = 1.0986122887014431, n = 1
+UCB
+   Node Stop(): criterion=0.48147073984106115
+   t.v[node] = -10.0, ltn = 1.0986122887014431, n = 1
+   Selected action: ProbeLabel(1)
+Generated observation: ASObservation(1, true, Int64[])
+Reward: 2.0
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 5 ---
+Sampled particle labels: Bool[1, 0, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 0, 1]
+Simulating at depth 10
+Current state labels: Bool[1, 0, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=13.774100225260913
+   t.v[node] = 2.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node ProbeLabel(2): criterion=13.774100225260913
+   t.v[node] = 2.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node ProbeLabel(3): criterion=10.774100225260913
+   t.v[node] = -1.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node Stop(): criterion=1.7741002252609128
+   t.v[node] = -10.0, ltn = 1.3862943611448906, n = 1
+   Selected action: ProbeLabel(1)
+Generated observation: ASObservation(1, true, Int64[])
+Reward: 2.0
+Likelihood under state: 0.8394199999999998
+Simulating at depth 9
+Current state labels: Bool[1, 0, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+   Selected action: ProbeLabel(2)
+Generated observation: ASObservation(2, false, [1])
+Reward: -1
+Likelihood under state: 0.053579999999999996
+New observation node created.
+Step 2
+  True state: ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 1, 1], false)
+  Action: ProbeLabel(2)
+  Obs: label=true neighbors=Int64[]
+  Reward: 2.0
+  Belief: 3 particles
+    Particle 1: labels=ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 0, 1], false), likelihood=0.8394199999999998
+    Particle 2: labels=ASState([Int64[], Int64[], Int64[]], Bool[1, 0, 0], Bool[0, 0, 1], false), likelihood=0.04418000000000004
+    Particle 3: labels=ASState([Int64[], Int64[], Int64[]], Bool[1, 0, 0], Bool[0, 0, 1], false), likelihood=0.04418000000000004
+=========== NEW SEARCH ===========
+Belief has 2 particles
+
+--- Simulation 1 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 1, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(2): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = -23.025850929940457, n = 0
+   Selected action: ProbeLabel(2)
+Generated observation: ASObservation(2, true, Int64[])
+Reward: -1
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 2 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 1, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node ProbeLabel(2): criterion=-0.9998999999958654
+   t.v[node] = -1.0, ltn = 1.000000082690371e-10, n = 1
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+UCB
+   Node Stop(): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.000000082690371e-10, n = 0
+   Selected action: Stop()
+Generated observation: ASObservation(-1, false, Int64[])
+Reward: 20
+Likelihood under state: 1.0
+New observation node created.
+
+--- Simulation 3 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 1, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=Inf
+   t.v[node] = 0.0, ltn = 0.6931471806099453, n = 0
+UCB
+   Node ProbeLabel(2): criterion=7.325546111877259
+   t.v[node] = -1.0, ltn = 0.6931471806099453, n = 1
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = 0.6931471806099453, n = 0
+UCB
+   Node Stop(): criterion=28.32554611187726
+   t.v[node] = 20.0, ltn = 0.6931471806099453, n = 1
+   Selected action: ProbeLabel(1)
+Generated observation: ASObservation(1, false, Int64[])
+Reward: -1
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 4 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 1, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=9.481470739841061
+   t.v[node] = -1.0, ltn = 1.0986122887014431, n = 1
+UCB
+   Node ProbeLabel(2): criterion=9.481470739841061
+   t.v[node] = -1.0, ltn = 1.0986122887014431, n = 1
+UCB
+   Node ProbeLabel(3): criterion=Inf
+   t.v[node] = 0.0, ltn = 1.0986122887014431, n = 0
+UCB
+   Node Stop(): criterion=30.48147073984106
+   t.v[node] = 20.0, ltn = 1.0986122887014431, n = 1
+   Selected action: ProbeLabel(3)
+Generated observation: ASObservation(3, false, Int64[])
+Reward: -1
+Likelihood under state: 0.8394199999999998
+New observation node created.
+
+--- Simulation 5 ---
+Sampled particle labels: Bool[0, 1, 0]
+Sampled particle graph: [Int64[], Int64[], Int64[]]
+Found: Bool[0, 1, 1]
+Simulating at depth 10
+Current state labels: Bool[0, 1, 0]
+Current state graph: [Int64[], Int64[], Int64[]]
+UCB
+   Node ProbeLabel(1): criterion=10.774100225260913
+   t.v[node] = -1.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node ProbeLabel(2): criterion=10.774100225260913
+   t.v[node] = -1.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node ProbeLabel(3): criterion=10.774100225260913
+   t.v[node] = -1.0, ltn = 1.3862943611448906, n = 1
+UCB
+   Node Stop(): criterion=31.774100225260913
+   t.v[node] = 20.0, ltn = 1.3862943611448906, n = 1
+   Selected action: Stop()
+Generated observation: ASObservation(-1, false, Int64[])
+Reward: 20
+Likelihood under state: 1.0
+Step 3
+  True state: ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 1, 1], true)
+  Action: Stop()
+  Obs: label=false neighbors=Int64[]
+  Reward: 20
+  Belief: 2 particles
+    Particle 1: labels=ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 1, 1], false), likelihood=1.0
+    Particle 2: labels=ASState([Int64[], Int64[], Int64[]], Bool[0, 1, 0], Bool[0, 1, 1], false), likelihood=1.0
+  Action: Stop -- ending episode early
+Episode finished.
+Plotting cumulative rewards and belief diagnostics...
+[-1.0, 2.0, 20.0]
