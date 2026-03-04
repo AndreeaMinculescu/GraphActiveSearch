@@ -286,7 +286,7 @@ function heatmap_hamming(particle_label_history, true_label)
 end 
 
 # Visualization helper: create and save plots for a finished episode
-function write_visualizations(labels_list, found_list, rewards, weights_mat, particle_snapshots, sims_topo_mat, sims_label_mat, found_counts, belief)
+function write_visualizations(labels_list, found_list, rewards, weights_mat, particle_snapshots, sims_topo_mat, sims_label_mat, found_counts, belief, output_path, date_time)
     # Determine actual episode length (may be shorter if Stop was chosen early)
     actual_steps = length(rewards)
     
@@ -352,11 +352,9 @@ function write_visualizations(labels_list, found_list, rewards, weights_mat, par
     # fig2 = plot(p2, p4, layout=(2,1), size=(800,1100))
 
     try
-        savefig(fig1, "performance.png")
-        # savefig(fig2, "belief_diagnostics.png")
+        savefig(fig1, joinpath(output_path, "$(date_time)_performance.png"))
+        return nothing
     catch e
         @warn "Failed to save figures" exception=(e, catch_backtrace())
     end
-    display(fig1)
-    # display(fig2)
 end

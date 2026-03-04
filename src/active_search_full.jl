@@ -14,6 +14,7 @@ using StatsBase
 using ParticleFilters
 using Plots  
 using D3Trees
+using Dates
 
 include("likelihoods.jl")
 include("utilities.jl")
@@ -412,7 +413,7 @@ function run_pomcp_demo(; n_nodes=12, tree_queries=600, max_steps=12, verbose=1)
         # max_idx[step] = argmax(weights)
 
         temp_particles = []
-        for p in bel.particles
+        for p in bel._particles
             push!(temp_particles, copy(p.labels))
         end
         push!(particle_snapshots, temp_particles)
@@ -430,12 +431,12 @@ function run_pomcp_demo(; n_nodes=12, tree_queries=600, max_steps=12, verbose=1)
             println("  Action: $a")
             println("  Obs: label=$(o.label) neighbors=$(o.neighbors)")
             println("  Reward: $r")
-            println("  Belief: $(length(bel.particles)) particles")
+            println("  Belief: $(length(bel._particles)) particles")
         end
 
         if verbose >= 3
-            for i in 1:length(bel.particles)
-                println("    Particle $i: labels=$(bel.particles[i]), likelihood=$(exp(log_likelihood(pomdp, bel.particles[i], a, o)))")
+            for i in 1:length(bel._particles)
+                println("    Particle $i: labels=$(bel._particles[i]), likelihood=$(exp(log_likelihood(pomdp, bel._particles[i], a, o)))")
             end
         end
 
@@ -452,25 +453,21 @@ function run_pomcp_demo(; n_nodes=12, tree_queries=600, max_steps=12, verbose=1)
     end 
     
     ####### Plotting ####### 
-    println(rewards)
-
     _, info = action_info(planner, initialstate(pomdp), tree_in_info=true)
-    inchrome(D3Tree(info[:tree], init_expand=1))
-
-    write_visualizations(final_s.labels, final_s.found, rewards, weights_mat, particle_snapshots, sims_topo_mat, sims_label_mat, found_counts, belief) 
     
-    # Write run log using helper function write_run_log(pf, belief, particle_snapshots, particle_weights_snapshots, s, rewards, actions)
-    # write_run_log(pf, belief, particle_snapshots, particle_weights_snapshots, init_s, final_s.found, rewards, actions)
+    date_time = Dates.format(Dates.now(), "yyyy-mm-dd_HHMMSS")
+    output_path = joinpath(pwd(), "output")
+    mkpath(output_path)
+    open(joinpath(output_path, "$(date_time)_tree.html"), "w") do f
+        write(f, sprint(show, MIME"text/html"(), D3Tree(info[:tree], init_expand=1)))
+    end
+    println("Saved D3Tree visualization to $output_path")
+    write_visualizations(final_s.labels, final_s.found, rewards, weights_mat, particle_snapshots, sims_topo_mat, sims_label_mat, found_counts, belief, output_path, date_time) 
+    println("Saved performance visualizations to $output_path")
 end
 
 
 # Run 
 println("Running code")
-run_pomcp_demo(n_nodes=10, tree_queries=10000, max_steps=50, verbose=2)
-# TODO:
-# - check that topo-noise works properly (seems like changing values doesn't affect performance)
-# - compute average over multiple runs/seeds
-# - node in ASObservation needed?
-
-# particles that don't match neighbours are sometimes kept because 0.95 is high; is that good behaviour? print likelihood values before filter is updated
+run_pomcp_demo(n_nodes=5, tree_queries=1000, max_steps=50, verbose=2)
 

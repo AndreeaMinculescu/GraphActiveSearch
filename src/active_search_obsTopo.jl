@@ -14,6 +14,7 @@ using StatsBase
 using ParticleFilters
 using Plots  
 using D3Trees
+using Dates
 
 include("likelihoods.jl")
 include("utilities.jl")
@@ -417,21 +418,17 @@ function run_pomcp_demo(; n_nodes=12, tree_queries=600, max_steps=12, verbose=1)
     end 
     
     ####### Plotting ####### 
-    println(rewards)
-
     _, info = action_info(planner, initialstate(pomdp), tree_in_info=true)
-    # inchrome(D3Tree(info[:tree], init_expand=1))
-    # Save HTML for host
-    html_file = "/app/output/tree.html"
-    open(html_file, "w") do f
+    
+    date_time = Dates.format(Dates.now(), "yyyy-mm-dd_HHMMSS")
+    output_path = joinpath(pwd(), "output")
+    mkpath(output_path)
+    open(joinpath(output_path, "$(date_time)_tree.html"), "w") do f
         write(f, sprint(show, MIME"text/html"(), D3Tree(info[:tree], init_expand=1)))
     end
-    println("Saved D3Tree visualization to $html_file")
-
-    write_visualizations(final_s.labels, final_s.found, rewards, weights_mat, particle_snapshots, sims_topo_mat, sims_label_mat, found_counts, belief) 
-    
-    # Write run log using helper function write_run_log(pf, belief, particle_snapshots, particle_weights_snapshots, s, rewards, actions)
-    # write_run_log(pf, belief, particle_snapshots, particle_weights_snapshots, final_s.labels, true_topo, final_s.found, rewards, actions)
+    println("Saved D3Tree visualization to $output_path")
+    write_visualizations(final_s.labels, final_s.found, rewards, weights_mat, particle_snapshots, sims_topo_mat, sims_label_mat, found_counts, belief, output_path, date_time) 
+    println("Saved performance visualizations to $output_path")
 
 end
 

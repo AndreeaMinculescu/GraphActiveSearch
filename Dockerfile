@@ -1,28 +1,13 @@
-# syntax=docker/dockerfile:1.4
-FROM julia:1.12 AS base
+FROM julia:1.12
 
 WORKDIR /active_search
 
-# Copy project files
+# Install dependencies
 COPY Project.toml Manifest.toml ./
+RUN julia --project=. -e "using Pkg; Pkg.instantiate()"
 
 # Copy source code
 COPY src/ ./src/
 
-# Copy entrypoint
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-# Detect architecture
-ARG TARGETARCH
-
-# ARM64: instantiate packages at build time
-RUN if [ "$TARGETARCH" = "arm64" ]; then \
-        julia --project=. -e 'using Pkg; Pkg.instantiate()'; \
-    fi
-
-# Set entrypoint for all architectures
-ENTRYPOINT ["/entrypoint.sh"]
-
-# Default command
+# Default script (can be overridden at runtime)
 CMD ["julia", "--project=.", "src/active_search_obsTopo.jl"]
